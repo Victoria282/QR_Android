@@ -1,7 +1,9 @@
 package com.example.qr;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -32,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
         scanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                // Получаем разрешение на камеру для Android 6+
+                int permissionStatus = ContextCompat.checkSelfPermission(MainActivity.this, android.Manifest.permission.CAMERA);
+                final int MY_CAMERA_REQUEST_CODE = 100;
+                if (permissionStatus != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[] {android.Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
+                }
 
                 IntentIntegrator scanIntegrator = new IntentIntegrator(MainActivity.this);
                 scanIntegrator.setOrientationLocked(false);
