@@ -44,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[] {android.Manifest.permission.CAMERA}, MY_CAMERA_REQUEST_CODE);
                 }
 
-                IntentIntegrator scanIntegrator = new IntentIntegrator(MainActivity.this);
-                scanIntegrator.setOrientationLocked(false);
-                // Процедура для сканирования
-                scanIntegrator.initiateScan();
+                else {
+                    IntentIntegrator scanIntegrator = new IntentIntegrator(MainActivity.this);
+                    scanIntegrator.setOrientationLocked(false);
+                    // Процедура для сканирования
+                    scanIntegrator.initiateScan();
+                }
             }
 
             // Обработка результата сканирования
