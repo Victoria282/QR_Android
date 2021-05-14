@@ -5,25 +5,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:screenOrientation="portrait"
     tools:context=".MainActivity">
-    <Button android:id="@+id/scan_button"
+
+    <TextView
+        android:layout_marginTop="70dp"
+        android:id="@+id/scan_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textIsSelectable="true"
+        android:textColor="@color/black"
+        android:textSize="38sp"
+        android:textStyle="bold"
         android:layout_centerHorizontal="true"
-        android:text="Распознать EAN-13" />
+        />
+
     <TextView
+        android:layout_marginTop="50dp"
         android:id="@+id/scan_format"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_below="@+id/scan_result"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/scan_button" />
+        />
     <TextView
+        android:layout_marginTop="30dp"
         android:id="@+id/scan_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textIsSelectable="true"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/scan_format" />
 
+    <Button android:id="@+id/scan_button"
+        android:layout_width="280dp"
+        android:layout_height="100dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="Распознать EAN-13" />
 </RelativeLayout>
