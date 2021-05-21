@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Student_Information"
+    android:background="#151414">
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        >
+        <ImageView
+            android:id="@+id/ProfilePic"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/back_button"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/rango"
+            />
+        <TextView
+            android:id="@+id/Surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Фамилия"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_below="@+id/ProfilePic"
+            android:textColor="#4C4C4C"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/StudentSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Лобашов"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_below="@+id/Surname"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Имя"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_below="@+id/StudentSurname"
+            android:textColor="#4C4C4C"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/StudentName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Николай"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_below="@+id/Name"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/LastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Отчество"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_below="@+id/StudentName"
+            android:textColor="#4C4C4C"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            tools:ignore="MissingConstraints" />
+        <TextView
+            android:id="@+id/StudentLastName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Александрович"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_below="@+id/LastName"
+            android:textColor="@color/white"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentLeft="true"
+            tools:ignore="MissingConstraints" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/FacultyLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/mainLayout">
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:id="@id/left"
+           android:orientation="vertical"
+           android:layout_alignParentLeft="true">
+           <TextView
+               android:id="@+id/Faculty"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Факультет"
+               android:textStyle="bold"
+               android:textSize="20sp"
+               android:textColor="#4C4C4C"
+               android:layout_marginTop="10dp"
+               android:layout_alignParentLeft="true"
+               tools:ignore="MissingConstraints" />
+           <TextView
+               android:id="@+id/FacultyName"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Математический"
+               android:textStyle="bold"
+               android:textSize="20sp"
+               android:textColor="@color/white"
+               android:layout_marginTop="5dp"
+               android:layout_alignParentLeft="true"
+               tools:ignore="MissingConstraints" />
+       </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="65dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/right"
+            android:layout_toRightOf="@+id/left"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/Group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Группа"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#4C4C4C"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/GroupName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="МТ-301"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentLeft="true"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/StatusLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/FacultyLayout">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@id/left"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true">
+            <TextView
+                android:id="@+id/StatusName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Статус  "
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:textColor="#4C4C4C"
+                android:layout_alignParentLeft="true"
+                tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/StatusResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/StatusName"
+                android:text="был в универе 2 года назад"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                tools:ignore="MissingConstraints" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

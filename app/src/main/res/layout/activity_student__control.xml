@@ -5,95 +5,107 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Student_Control"
-    android:background="#FFFFFF"
+    android:background="#151414"
     >
 
-    <TextView
-        android:id="@+id/Tittle"
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Student ID:"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="10dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/ID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="978020137962"
-        android:textColor="#191919"
-        android:layout_marginTop="10dp"
-        android:textSize="23sp"
-        android:layout_below="@+id/Tittle"
-        android:layout_centerHorizontal="true"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="10dp"
-        tools:ignore="MissingConstraints" />
-
-    <de.hdodenhof.circleimageview.CircleImageView
+        >
+    <ImageView
         android:id="@+id/ProfilePic"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_marginTop="50dp"
+        android:background="@drawable/back_button"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/ID"
-        android:src="@drawable/test"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#000000"/>
-
+        android:src="@drawable/rango"
+        />
     <TextView
         android:id="@+id/StudentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Иванов Иван Иванович"
+        android:text="Лобашов Николай"
         android:textStyle="bold"
-        android:textSize="35sp"
+        android:textSize="20sp"
         android:layout_below="@+id/ProfilePic"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:layout_marginTop="30dp"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
         tools:ignore="MissingConstraints" />
-
     <TextView
         android:id="@+id/StudentGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="МТ-301"
+        android:text="Студент"
         android:textStyle="bold"
-        android:textSize="36sp"
+        android:textSize="20sp"
         android:layout_below="@+id/StudentName"
         android:textColor="#4C4C4C"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="6dp"
+        android:layout_alignParentLeft="true"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/accept"
-        android:layout_width="210dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="30dp"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:text="Запретить"
-        android:textSize="22sp"
-        android:layout_alignParentBottom="true"
-        app:backgroundTint="#FF0900" />
-    <Button
-        android:id="@+id/decline"
-        android:layout_width="210dp"
-        android:layout_height="65dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/accept"
-        android:layout_marginTop="30dp"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:text="Подтвердить"
-        android:textSize="22sp"
-        app:backgroundTint="#00FF19" />
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/StudentGroup"
+            android:layout_marginTop="20dp"
+            android:background="#FF4C8EFF"
+            android:text="Информация"
+            android:textColor="@color/white"
+            android:id="@+id/Inform_button"
+            android:textSize="16sp"
+            android:textStyle="bold">
+        </Button>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_below="@+id/mainLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Подтвердить личность"
+        android:textColor="@color/white"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp">
+    </TextView>
+    <RelativeLayout
+        android:layout_below="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/leftLayout"
+            android:layout_width="130dp"
+            android:layout_height="match_parent"
+            android:background="#4A2424"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/decline" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/rightLayout"
+            android:layout_toRightOf="@+id/leftLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#386130"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:background="@drawable/accept" />
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>
