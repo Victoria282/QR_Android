@@ -22,13 +22,12 @@
         android:layout_marginTop="50dp"
         android:background="@drawable/back_button"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/rango"
         />
     <TextView
         android:id="@+id/StudentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Лобашов Николай"
+        android:text="Загрузка..."
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_below="@+id/ProfilePic"
