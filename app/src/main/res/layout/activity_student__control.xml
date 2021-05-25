@@ -9,82 +9,86 @@
     android:background="#151414"
     >
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-    <ImageView
-        android:id="@+id/ProfilePic"
-        android:layout_width="280dp"
-        android:layout_height="280dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/back_button"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/rango"
-        />
-    <TextView
-        android:id="@+id/StudentName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Лобашов Николай"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_below="@+id/ProfilePic"
-        android:textColor="@color/white"
-        android:layout_marginTop="30dp"
-        android:layout_alignParentLeft="true"
-        tools:ignore="MissingConstraints" />
-    <TextView
-        android:id="@+id/StudentGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Студент"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:layout_below="@+id/StudentName"
-        android:textColor="#4C4C4C"
-        android:layout_marginTop="6dp"
-        android:layout_alignParentLeft="true"
-        tools:ignore="MissingConstraints" />
+        android:layout_above="@+id/confirm">
 
-        <Button
-            android:layout_width="280dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/StudentGroup"
-            android:layout_marginTop="20dp"
-            android:background="#FF4C8EFF"
-            android:text="Информация"
-            android:textColor="@color/white"
-            android:id="@+id/Inform_button"
-            android:textSize="16sp"
-            android:textStyle="bold">
-        </Button>
-    </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/ProfilePic"
+                android:layout_width="280dp"
+                android:layout_height="280dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/back_button"
+                android:src="@drawable/rango" />
+
+            <TextView
+                android:id="@+id/StudentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ProfilePic"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="30dp"
+                android:text="@string/loading"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/StudentGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/StudentName"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="3dp"
+                android:text="@string/type_person"
+                android:textColor="#4C4C4C"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/Inform_button"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/StudentGroup"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="#FF4C8EFF"
+                android:text="Информация"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"></Button>
+        </RelativeLayout>
     </ScrollView>
+
     <TextView
-        android:layout_below="@+id/mainLayout"
+        android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/buttons"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:text="Подтвердить личность"
         android:textColor="@color/white"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="16sp">
-    </TextView>
-
+        android:textSize="16sp"></TextView>
 
 
     <RelativeLayout
-        android:layout_alignParentBottom="true"
-        android:layout_below="@+id/mainLayout"
+        android:id="@+id/buttons"
         android:layout_width="match_parent"
-        android:layout_marginTop="60dp"
-        android:layout_height="match_parent">
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true">
+
         <LinearLayout
             android:id="@+id/leftLayout"
             android:layout_width="130dp"
@@ -99,11 +103,12 @@
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:background="@drawable/decline" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/rightLayout"
-            android:layout_toRightOf="@+id/leftLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/leftLayout"
             android:background="#386130"
             android:gravity="center_vertical"
             android:orientation="vertical">
