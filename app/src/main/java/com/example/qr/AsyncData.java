@@ -22,6 +22,11 @@ public class AsyncData extends AsyncTask<String, Void, String> {
     private String code;
     private ImageView ivAvatar;
 
+    //Константы для подключения к БД
+    private final String DB_LOGIN = "android";
+    private final String DB_PASS = "KU986iu1";
+    private final String CHARSET = "UTF-8";
+
     public AsyncData(Context context, TextView text, ImageView ivAvatar, String code) {
         this.context = context;
         this.tvName = text;
@@ -32,13 +37,17 @@ public class AsyncData extends AsyncTask<String, Void, String> {
     @Override
     protected String doInBackground(String... strings) {
         try {
-            String link = "https://1984year.000webhostapp.com/android.php";
-            String data = URLEncoder.encode("code", "UTF-8") + "=" + URLEncoder.encode(code, "UTF-8");
-            URL url = new URL(link);
+            String apiLink = "https://1984year.000webhostapp.com/api/android/getdata.php";
+            String params = String.format("login=%s&pass=%s&code=%s",
+                    URLEncoder.encode(DB_LOGIN, CHARSET),
+                    URLEncoder.encode(DB_PASS, CHARSET),
+                    URLEncoder.encode(code, CHARSET));
+
+            URL url = new URL(apiLink);
             URLConnection connection = url.openConnection();
             connection.setDoOutput(true);
             OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream());
-            wr.write(data);
+            wr.write(params);
             wr.flush();
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
@@ -50,6 +59,7 @@ public class AsyncData extends AsyncTask<String, Void, String> {
                 result.append(line);
                 break;
             }
+            reader.close();
             return  result.toString();
 
         } catch (Exception e) {
@@ -59,6 +69,7 @@ public class AsyncData extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String result) {
+        super.onPostExecute(result);
         if (result.equals("false"))
         {
             Toast.makeText(context, "Студент не найден", Toast.LENGTH_SHORT).show();
@@ -66,6 +77,7 @@ public class AsyncData extends AsyncTask<String, Void, String> {
         }
         else
         {
+
             this.tvName.setText(result);
             this.ivAvatar.setImageDrawable(context.getDrawable(R.drawable.rango));
         }
