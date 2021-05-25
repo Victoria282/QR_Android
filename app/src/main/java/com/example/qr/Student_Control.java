@@ -21,7 +21,9 @@ public class Student_Control extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student__control);
 
-        ((AppCompatActivity) Student_Control.this).getSupportActionBar().setTitle("EAN-13:" + "0000000000017");
+        Bundle arguments = getIntent().getExtras();
+        String studentCode = arguments.get("ean13").toString();
+        ((AppCompatActivity) Student_Control.this).getSupportActionBar().setTitle("EAN-13:" + studentCode);
 
         Inform_button = findViewById(R.id.Inform_button);
         Inform_button.setOnClickListener(new View.OnClickListener() {

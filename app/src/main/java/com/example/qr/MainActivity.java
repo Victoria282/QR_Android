@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // formatTxt.setText(scanFormat);
                 // contentTxt.setText(scanContent);
                 // scanResult.setText("Результат: ");
-                startActivity(new Intent(MainActivity.this, Student_Control.class));
+                startActivity(new Intent(MainActivity.this, Student_Control.class).putExtra("ean13", scanContent));
 
             }
             else {
