@@ -64,9 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // Вид barcode
                 String scanFormat = scanningResult.getFormatName();
                 // Запись в textView результата
-                formatTxt.setText(scanFormat);
-                contentTxt.setText(scanContent);
-                scanResult.setText("Результат: ");
+                // formatTxt.setText(scanFormat);
+                // contentTxt.setText(scanContent);
+                // scanResult.setText("Результат: ");
                 startActivity(new Intent(MainActivity.this, Student_Control.class));
 
             }

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Student_Information"
+    android:orientation="vertical"
     android:background="#151414">
 
     <RelativeLayout
@@ -28,7 +29,7 @@
             android:layout_height="wrap_content"
             android:text="Фамилия"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_below="@+id/ProfilePic"
             android:textColor="#4C4C4C"
             android:layout_marginTop="10dp"
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="Имя"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_below="@+id/StudentSurname"
             android:textColor="#4C4C4C"
             android:layout_marginTop="10dp"
@@ -77,7 +78,7 @@
             android:layout_height="wrap_content"
             android:text="Отчество"
             android:textStyle="bold"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_below="@+id/StudentName"
             android:textColor="#4C4C4C"
             android:layout_marginTop="10dp"
@@ -116,7 +117,7 @@
                android:layout_height="wrap_content"
                android:text="Факультет"
                android:textStyle="bold"
-               android:textSize="20sp"
+               android:textSize="18sp"
                android:textColor="#4C4C4C"
                android:layout_marginTop="10dp"
                android:layout_alignParentLeft="true"
@@ -146,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:text="Группа"
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="#4C4C4C"
                 android:layout_marginTop="10dp"
                 android:layout_alignParentLeft="true"
@@ -185,7 +186,7 @@
                 android:layout_height="wrap_content"
                 android:text="Статус  "
                 android:textStyle="bold"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 android:textColor="#4C4C4C"
                 android:layout_alignParentLeft="true"
                 tools:ignore="MissingConstraints" />
@@ -200,6 +201,5 @@
                 android:textColor="@color/white"
                 tools:ignore="MissingConstraints" />
         </RelativeLayout>
-
     </RelativeLayout>
 </RelativeLayout>

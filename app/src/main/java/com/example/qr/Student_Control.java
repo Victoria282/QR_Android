@@ -1,10 +1,13 @@
 package com.example.qr;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -27,5 +30,17 @@ public class Student_Control extends AppCompatActivity {
                 startActivity(new Intent(Student_Control.this, Student_Information.class));
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.back, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.back) {
+            startActivity(new Intent(Student_Control.this, MainActivity.class));
+            return true;
+        }
+        return false;
     }
 }

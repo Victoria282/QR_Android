@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".InformationActivity">
 
@@ -9,11 +10,18 @@
         android:id="@+id/tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Наши разработчики"
+        android:text="@string/Developers"
         android:textColor="@color/black"
-        android:layout_marginTop="30dp"
-        android:textSize="34sp"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"
         tools:ignore="MissingConstraints" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tittle"
+        android:layout_marginTop="10dp"
+        android:id="@+id/listView"
+        android:layout_height="match_parent" />
 </RelativeLayout>
