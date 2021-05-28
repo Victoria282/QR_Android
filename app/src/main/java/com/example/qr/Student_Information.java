@@ -24,10 +24,10 @@ public class Student_Information extends AppCompatActivity {
         Name = findViewById(R.id.StudentName);
         LastName = findViewById(R.id.StudentLastName);
 
+        String code = getIntent().getStringExtra("Code");
+        ((AppCompatActivity) Student_Information.this).getSupportActionBar().setTitle("EAN-13:" + code);
 
-        ((AppCompatActivity) Student_Information.this).getSupportActionBar().setTitle("EAN-13:" + "0000000000017");
         String data = getIntent().getStringExtra("Data");
-        //System.out.println("VIKA" + data);
         String [] Array = data.split(" ");
 
         Surname.setText(Array[0]);

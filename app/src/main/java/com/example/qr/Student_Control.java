@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
@@ -31,6 +32,7 @@ public class Student_Control extends AppCompatActivity {
     ImageView ivPhoto;
     Button Inform_button;
     String data;
+    LinearLayout leftLayout, rightLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +44,15 @@ public class Student_Control extends AppCompatActivity {
 
         tvName = (TextView)findViewById(R.id.StudentName);
         ivPhoto = (ImageView)findViewById(R.id.ProfilePic);
+        leftLayout = (LinearLayout)findViewById(R.id.leftLayout);
+        rightLayout  = (LinearLayout) findViewById(R.id.rightLayout);
+        leftLayout.setVisibility(View.GONE);
+        rightLayout.setVisibility(View.GONE);
         Inform_button = findViewById(R.id.Inform_button);
         Inform_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Student_Control.this, Student_Information.class).putExtra("Data", data));
+                startActivity(new Intent(Student_Control.this, Student_Information.class).putExtra("Data", data).putExtra("Code", studentCode));
             }
         });
         new AsyncData().execute(studentCode);
@@ -109,6 +115,9 @@ public class Student_Control extends AppCompatActivity {
                 tvName.setText(result);
                 ivPhoto.setImageDrawable(getDrawable(R.drawable.rango));
                 data = result;
+                leftLayout.setVisibility(View.VISIBLE);
+                rightLayout.setVisibility(View.VISIBLE);
+
             }
         }
     }
