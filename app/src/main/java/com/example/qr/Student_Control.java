@@ -27,15 +27,17 @@ import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class Student_Control extends AppCompatActivity {
 
-    TextView tvName;
+    TextView tvName, confirm;
     ImageView ivPhoto;
-    Button Inform_button;
+    Button Inform_button, btnAccept, btnDecline;
     String data;
     int avatar;
-    LinearLayout leftLayout, rightLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,19 +49,31 @@ public class Student_Control extends AppCompatActivity {
         ((AppCompatActivity) Student_Control.this).getSupportActionBar().setTitle("EAN-13:" + studentCode);
 
         tvName = (TextView)findViewById(R.id.StudentName);
+        confirm = (TextView)findViewById(R.id.confirm);
         ivPhoto = (ImageView)findViewById(R.id.ProfilePic);
-        leftLayout = (LinearLayout)findViewById(R.id.leftLayout);
-        rightLayout  = (LinearLayout) findViewById(R.id.rightLayout);
-        leftLayout.setVisibility(View.GONE);
-        rightLayout.setVisibility(View.GONE);
         Inform_button = findViewById(R.id.Inform_button);
+        btnAccept = (Button)findViewById(R.id.btnAccept);
+        btnDecline = (Button)findViewById(R.id.btnDecline);
+
         Inform_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Student_Control.this, Student_Information.class).putExtra("Data", data).putExtra("Code", studentCode).putExtra("Photo",String.valueOf(avatar)));
             }
         });
+
+        btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AsyncQuery(getApplicationContext()).execute(studentCode);
+                btnAccept.setVisibility(View.GONE);
+                btnDecline.setVisibility(View.GONE);
+            }
+        });
         new AsyncData().execute(studentCode);
+
+        String currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
+        confirm.setText("Пришел(ла) в " + currentTime + "?");
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,8 +146,6 @@ public class Student_Control extends AppCompatActivity {
                 avatar = imgRes;
                 ivPhoto.setImageDrawable(getDrawable(imgRes));
                 data = surname + " " + name + " " + lastname;
-                leftLayout.setVisibility(View.VISIBLE);
-                rightLayout.setVisibility(View.VISIBLE);
 
             }
         }

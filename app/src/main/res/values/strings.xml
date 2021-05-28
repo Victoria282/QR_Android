@@ -3,4 +3,6 @@
     <string name="Developers">Наши разработчики</string>
     <string name="loading">Загрузка...</string>
     <string name="type_person">Студент</string>
+    <string name="company">Team 1984</string>
+    <string name="btn_scan">Сканировать</string>
 </resources>
