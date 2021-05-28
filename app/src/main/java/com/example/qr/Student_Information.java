@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 public class Student_Information extends AppCompatActivity {
 
     TextView Surname, Name, LastName;
+    ImageView profilePic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,17 +25,19 @@ public class Student_Information extends AppCompatActivity {
         Surname = findViewById(R.id.StudentSurname);
         Name = findViewById(R.id.StudentName);
         LastName = findViewById(R.id.StudentLastName);
-
+        profilePic = findViewById(R.id.ProfilePic);
         String code = getIntent().getStringExtra("Code");
         ((AppCompatActivity) Student_Information.this).getSupportActionBar().setTitle("EAN-13:" + code);
 
         String data = getIntent().getStringExtra("Data");
+        int imgRes = Integer.parseInt(getIntent().getStringExtra("Photo"));
+
         String [] Array = data.split(" ");
 
         Surname.setText(Array[0]);
         Name.setText(Array[1]);
         LastName.setText(Array[2]);
-
+        profilePic.setImageDrawable(getDrawable(imgRes));
 
     }
     @Override

@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.UriMatcher;
+import android.content.pm.ActivityInfo;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -32,11 +34,13 @@ public class Student_Control extends AppCompatActivity {
     ImageView ivPhoto;
     Button Inform_button;
     String data;
+    int avatar;
     LinearLayout leftLayout, rightLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student__control);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Bundle arguments = getIntent().getExtras();
         String studentCode = arguments.get("ean13").toString();
@@ -52,7 +56,7 @@ public class Student_Control extends AppCompatActivity {
         Inform_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Student_Control.this, Student_Information.class).putExtra("Data", data).putExtra("Code", studentCode));
+                startActivity(new Intent(Student_Control.this, Student_Information.class).putExtra("Data", data).putExtra("Code", studentCode).putExtra("Photo",String.valueOf(avatar)));
             }
         });
         new AsyncData().execute(studentCode);
@@ -112,9 +116,22 @@ public class Student_Control extends AppCompatActivity {
                 tvName.setText("Студент не найден");
             }
             else {
-                tvName.setText(result);
-                ivPhoto.setImageDrawable(getDrawable(R.drawable.rango));
-                data = result;
+                String[] localdata = result.split(" ");
+                String surname = localdata[0];
+                String name = localdata[1];
+                String lastname = localdata[2];
+                String imgsrc = localdata[3];
+                int imgRes;
+                tvName.setText(surname + " " + name);
+                if (imgsrc.equals("nikolay99")) imgRes = R.drawable.nikolay99;
+                else if (imgsrc.equals("vilkova")) imgRes = R.drawable.vilkova;
+                else if (imgsrc.equals("zueva")) imgRes = R.drawable.zueva;
+                else if (imgsrc.equals("burenkova")) imgRes = R.drawable.burenkova;
+                else if (imgsrc.equals("innap")) imgRes = R.drawable.innap;
+                else imgRes = R.drawable.rango;
+                avatar = imgRes;
+                ivPhoto.setImageDrawable(getDrawable(imgRes));
+                data = surname + " " + name + " " + lastname;
                 leftLayout.setVisibility(View.VISIBLE);
                 rightLayout.setVisibility(View.VISIBLE);
 
