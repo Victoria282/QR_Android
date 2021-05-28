@@ -30,6 +30,7 @@ public class Student_Control extends AppCompatActivity {
     TextView tvName;
     ImageView ivPhoto;
     Button Inform_button;
+    String data;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class Student_Control extends AppCompatActivity {
         Inform_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Student_Control.this, Student_Information.class));
+                startActivity(new Intent(Student_Control.this, Student_Information.class).putExtra("Data", data));
             }
         });
         new AsyncData().execute(studentCode);
@@ -87,8 +88,7 @@ public class Student_Control extends AppCompatActivity {
                 StringBuilder result = new StringBuilder();
                 String line = null;
 
-                while ((line = reader.readLine()) != null)
-                {
+                while ((line = reader.readLine()) != null) {
                     result.append(line);
                     break;
                 }
@@ -102,14 +102,13 @@ public class Student_Control extends AppCompatActivity {
 
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
-            if (result.equals("false"))
-            {
+            if (result.equals("false")) {
                 tvName.setText("Студент не найден");
             }
-            else
-            {
+            else {
                 tvName.setText(result);
                 ivPhoto.setImageDrawable(getDrawable(R.drawable.rango));
+                data = result;
             }
         }
     }
